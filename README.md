@@ -1,4 +1,6 @@
 # Autonomous Incident-to-Fix Engineering Agent
+# PS 02
+# CtrlAltElite
 
 This project implements an AI-driven engineering agent that interprets incident tickets, analyzes the Shopstack Platform repository, detects root causes, and generates automated fix suggestions.
 
@@ -26,3 +28,5 @@ pip install -r requirements.txt
 python -m streamlit run app.py
 
 The system analyzes the Shopstack Platform repository to detect incidents and suggest fixes.
+
+## links 
