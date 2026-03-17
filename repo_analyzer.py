@@ -1,17 +1,14 @@
 import os
 
-# correct relative path to dataset repo
-REPO_PATH = "../shopstack-platform"
+def search_repo(keywords, base_path):
 
-def search_repo(keywords):
+    matched_files = []
 
-    matches = []
-
-    for root, dirs, files in os.walk(REPO_PATH):
+    for root, dirs, files in os.walk(base_path):
 
         for file in files:
 
-            if file.endswith(".js") or file.endswith(".ts") or file.endswith(".py"):
+            if file.endswith(".py") or file.endswith(".js") or file.endswith(".ts"):
 
                 file_path = os.path.join(root, file)
 
@@ -20,13 +17,12 @@ def search_repo(keywords):
 
                         content = f.read().lower()
 
-                        for key in keywords:
-
-                            if key in content:
-                                matches.append(file_path)
+                        for keyword in keywords:
+                            if keyword.lower() in content:
+                                matched_files.append(file_path)
                                 break
 
                 except:
-                    pass
+                    continue
 
-    return matches
+    return matched_files
